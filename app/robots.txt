@@ -1,0 +1,21 @@
+# KOI Build Co - Robots.txt
+# https://koi.build
+
+# Allow all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Block access to admin/internal paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /_static/
+Disallow: /admin/
+
+# Tell Google where to find your sitemap
+Sitemap: https://koi.build/sitemap.xml
+
+# Crawl delay to be respectful to the server (1 second between requests)
+Crawl-delay: 1
+
+# Specify the host (helps with canonicalization)
+Host: https://koi.build

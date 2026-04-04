@@ -1,26 +1,120 @@
+/* app/globals.css - KOI Build Co */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Open+Sans:wght@400;500;600;700&family=Open+Sans+Condensed:wght@300;700&display=swap');
+
+/* Import Tailwind */
 @import "tailwindcss";
 
+/* CSS Variables for your color scheme */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #131c23;
+  --primary-red: #dc101c;
+  --primary-gray: #95999a;
+  --primary-dark: #131c23;
+  --primary-white: #ffffff;
 }
 
+/* Theme configuration */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-red: var(--primary-red);
+  --color-gray: var(--primary-gray);
+  --color-dark: var(--primary-dark);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base styles */
+@layer base {
+  /* Heading font - Lato (from your screenshots) */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', 'Noto Serif', Times, serif;
+    font-weight: 700;
+    color: #131c23;
+  }
+  
+  /* Body font - Open Sans */
+  body {
+    font-family: 'Open Sans', 'Droid Sans', Arial, sans-serif;
+    background-color: #ffffff;
+    color: #4a5568;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navigation menu font - Droid Sans (from your screenshot) */
+  nav, .nav-menu {
+    font-family: 'Droid Sans', 'Open Sans', Arial, sans-serif;
+    font-weight: 700;
+  }
+  
+  /* Button font - Open Sans Condensed (from your screenshot) */
+  button, .btn, .button {
+    font-family: 'Open Sans Condensed', 'Open Sans', Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom utility classes (only for complex things, otherwise use Tailwind) */
+@layer utilities {
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom selection color */
+  ::selection {
+    background-color: #dc101c;
+    color: #ffffff;
+  }
+  
+  /* Focus styles for accessibility */
+  a:focus, button:focus {
+    outline: 2px solid #dc101c;
+    outline-offset: 2px;
+  }
+}
+
+/* Container utility (if needed) */
+.container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Responsive container padding */
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Remove focus outline from navbar links */
+nav a:focus,
+nav button:focus,
+.navbar-link:focus,
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Optional: Add a subtle focus style for accessibility (better than red square) */
+nav a:focus-visible,
+nav button:focus-visible {
+  outline: 2px solid #dc101c;
+  outline-offset: 2px;
 }
