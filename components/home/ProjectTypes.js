@@ -19,9 +19,9 @@ const projects = [
     image: '/additions.jpg',
   },
   {
-    title: 'New Construction',
+    title: 'New Homes',
     tagline: 'exceptional',
-    href: '/new-construction',
+    href: '/new-homes',
     image: '/new-construction.jpg',
   },
   {
@@ -37,9 +37,27 @@ const projects = [
     image: '/roofing.jpg',
   },
   {
+    title: 'Deck & Patios',
+    tagline: 'outdoor',
+    href: '/deck-patio',
+    image: '/deck-patio.jpg',
+  },
+  {
+    title: 'ADU & DADU',
+    tagline: 'versatile',
+    href: '/adu-dadu',
+    image: '/adu-dadu.jpg',
+  },
+  {
+    title: 'Tiny Homes',
+    tagline: 'efficient',
+    href: '/tiny-homes',
+    image: '/tiny-homes.jpg',
+  },
+  {
     title: 'Full Remodeling',
     tagline: 'luxury',
-    href: '/services',
+    href: '/remodeling',
     image: '/remodeling.jpg',
   },
 ]
@@ -84,7 +102,7 @@ export default function ProjectTypes() {
           </h2>
         </div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid - 3x3 Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <Link

@@ -21,9 +21,9 @@ const services = [
     icon: "🏗️",
   },
   {
-    title: "New Construction",
-    path: "/new-construction",
-    desc: "Custom home building",
+    title: "New Homes",
+    path: "/new-homes",
+    desc: "Custom home building from the ground up",
     icon: "🏘️",
   },
   {
@@ -39,8 +39,26 @@ const services = [
     icon: "🏠",
   },
   {
+    title: "Deck & Patios",
+    path: "/deck-patio",
+    desc: "Custom outdoor living spaces",
+    icon: "🪑",
+  },
+  {
+    title: "ADU & DADU",
+    path: "/adu-dadu",
+    desc: "Accessory dwelling units & detached ADUs",
+    icon: "🏡",
+  },
+  {
+    title: "Tiny Homes",
+    path: "/tiny-homes",
+    desc: "Compact, efficient living spaces",
+    icon: "🏕️",
+  },
+  {
     title: "Remodeling",
-    path: "/services",
+    path: "/remodeling",
     desc: "Complete home transformations",
     icon: "🔨",
   },
@@ -67,7 +85,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setScrolled(currentScrollY > 20); // Changed from 40 to 20 - triggers transparency change sooner
+      setScrolled(currentScrollY > 20);
 
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
         setShowNavbar(false);
@@ -100,7 +118,7 @@ export default function Navbar() {
     return false;
   };
 
-  // Dynamic styles based on scroll - THIS IS THE ONLY ADDITION
+  // Dynamic styles based on scroll
   const navbarBg = scrolled 
     ? "bg-white/95 backdrop-blur-md border border-gray-100 rounded-full shadow-lg" 
     : "bg-transparent";
@@ -130,7 +148,7 @@ export default function Navbar() {
               className={`relative mx-auto flex items-center justify-between transition-all duration-500 ${
                 scrolled
                   ? "bg-white/95 backdrop-blur-md border border-gray-100 rounded-full shadow-lg px-4 py-2 sm:px-6 sm:py-3"
-                  : "bg-transparent px-4 py-3 sm:px-6 sm:py-3" // Changed from bg-white/80 to bg-transparent
+                  : "bg-transparent px-4 py-3 sm:px-6 sm:py-3"
               }`}
             >
               {/* LOGO with Image */}
@@ -138,18 +156,17 @@ export default function Navbar() {
                 href="/"
                 className="flex items-center gap-2"
               >
-              <Image
-  src="/logo.png"
-  alt="KOI Build Co Logo"
-  width={220}
-  height={390}
-  className="object-contain transition-all duration-300 w-38 sm:w-50 "
-  priority
-/>
-                
+                <Image
+                  src="/logo.png"
+                  alt="KOI Build Co Logo"
+                  width={220}
+                  height={390}
+                  className="object-contain transition-all duration-300 w-38 sm:w-50"
+                  priority
+                />
               </Link>
 
-              {/* DESKTOP NAVIGATION - LARGER TEXT */}
+              {/* DESKTOP NAVIGATION */}
               <nav className="hidden items-center gap-8 lg:flex">
                 {navLinks.map((link) => (
                   <div
@@ -180,14 +197,14 @@ export default function Navbar() {
                     {/* SERVICES DROPDOWN */}
                     {link.hasDropdown && (
                       <div
-                        className={`absolute left-1/2 -translate-x-1/2 top-full pt-4 w-[680px] max-w-[90vw] transition-all duration-300 ${
+                        className={`absolute left-1/2 -translate-x-1/2 top-full pt-4 w-[880px] max-w-[95vw] transition-all duration-300 ${
                           openDropdown
                             ? "pointer-events-auto translate-y-0 opacity-100"
                             : "pointer-events-none -translate-y-2 opacity-0"
                         }`}
                       >
                         <div className="rounded-2xl bg-white p-6 shadow-xl border border-gray-100">
-                          <div className="grid grid-cols-2 gap-4">
+                          <div className="grid grid-cols-3 gap-4">
                             {services.map((item, i) => (
                               <Link
                                 key={i}
@@ -196,10 +213,10 @@ export default function Navbar() {
                               >
                                 <div className="text-2xl">{item.icon}</div>
                                 <div>
-                                  <h4 className="font-semibold text-[#131c23] group-hover:text-[#dc101c] transition text-[16px]">
+                                  <h4 className="font-semibold text-[#131c23] group-hover:text-[#dc101c] transition text-[15px]">
                                     {item.title}
                                   </h4>
-                                  <p className="text-sm text-gray-500">
+                                  <p className="text-xs text-gray-500">
                                     {item.desc}
                                   </p>
                                 </div>
@@ -221,7 +238,7 @@ export default function Navbar() {
                 ))}
               </nav>
 
-              {/* RIGHT SIDE - PHONE BUTTON - LARGER */}
+              {/* RIGHT SIDE - PHONE BUTTON */}
               <a
                 href="tel:2533481847"
                 className={`hidden lg:flex items-center gap-2 px-6 py-3 rounded-full transition font-['Open_Sans_Condensed'] font-bold uppercase tracking-wider text-base ${buttonBg} ${buttonTextColor}`}
@@ -250,29 +267,26 @@ export default function Navbar() {
             : "pointer-events-none opacity-0"
         }`}
       >
-        {/* Backdrop */}
         <div
           className="absolute inset-0 bg-black/20 backdrop-blur-sm"
           onClick={() => setMobileOpen(false)}
         />
 
-        {/* Mobile Menu Panel */}
         <div className="relative h-full w-full overflow-y-auto px-4 pt-4 pb-8">
           <div className="mx-auto min-h-[calc(100vh-2rem)] max-w-2xl rounded-2xl bg-white shadow-2xl">
-            {/* Header */}
             <div className="flex items-center justify-between border-b border-gray-100 px-5 py-4">
               <Link
                 href="/"
                 className="flex items-center gap-2"
                 onClick={() => setMobileOpen(false)}
               >
-               <Image
-  src="/logo.png"
-  alt="KOI Build Co Logo"
-  width={102}
-  height={102}
-  className="object-contain w-44 sm:w-28 h-auto"
-/>
+                <Image
+                  src="/logo.png"
+                  alt="KOI Build Co Logo"
+                  width={102}
+                  height={102}
+                  className="object-contain w-44 sm:w-28 h-auto"
+                />
               </Link>
               <button
                 onClick={() => setMobileOpen(false)}
@@ -282,7 +296,6 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Navigation Links - LARGER TEXT FOR MOBILE */}
             <div className="p-5">
               <div className="flex flex-col space-y-3">
                 <Link
@@ -297,7 +310,6 @@ export default function Navbar() {
                   Home
                 </Link>
 
-                {/* Services Dropdown in Mobile */}
                 <div>
                   <button
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
@@ -358,7 +370,6 @@ export default function Navbar() {
                 </Link>
               </div>
 
-              {/* Mobile CTA Button - LARGER */}
               <div className="mt-8 pt-6 border-t border-gray-100">
                 <a
                   href="tel:2533481847"

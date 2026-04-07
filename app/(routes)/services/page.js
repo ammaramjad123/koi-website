@@ -13,8 +13,11 @@ import {
   Shield,
   ThumbsUp,
   ArrowRight, 
-   MapPin,        // ← Add this
-  ChevronRight   // ← Add this
+  MapPin,
+  ChevronRight,
+  Trees,
+  Building2,
+  Home as TinyHomeIcon
 } from 'lucide-react'
 
 export const metadata = {
@@ -42,10 +45,10 @@ const services = [
     color: 'from-emerald-600/20',
   },
   {
-    title: 'New Construction',
+    title: 'New Homes',
     description: 'Custom home building from the ground up. Let us build your dream home with quality materials and expert design.',
     icon: <Ruler className="w-8 h-8" />,
-    href: '/new-construction',
+    href: '/new-homes',
     features: ['Custom Homes', 'Design-Build', 'Project Management', 'Quality Assurance'],
     image: '/services-construction.jpg',
     color: 'from-blue-600/20',
@@ -69,10 +72,37 @@ const services = [
     color: 'from-orange-600/20',
   },
   {
+    title: 'Deck & Patios',
+    description: 'Custom outdoor living spaces. Transform your backyard with beautiful decks, patios, and outdoor entertainment areas.',
+    icon: <Trees className="w-8 h-8" />,
+    href: '/deck-patio',
+    features: ['Custom Decks', 'Patio Construction', 'Outdoor Kitchens', 'Fire Pits'],
+    image: '/services-deck.jpg',
+    color: 'from-emerald-600/20',
+  },
+  {
+    title: 'ADU & DADU',
+    description: 'Accessory Dwelling Units and Detached ADUs. Maximize your property value with versatile additional living spaces.',
+    icon: <Building2 className="w-8 h-8" />,
+    href: '/adu-dadu',
+    features: ['Attached ADU', 'Detached DADU', 'Garage Conversion', 'Income Property'],
+    image: '/services-adu.jpg',
+    color: 'from-blue-600/20',
+  },
+  {
+    title: 'Tiny Homes',
+    description: 'Compact, efficient living spaces. Sustainable, beautifully designed tiny homes for modern living.',
+    icon: <TinyHomeIcon className="w-8 h-8" />,
+    href: '/tiny-homes',
+    features: ['Custom Tiny Homes', 'Sustainable Design', 'Space Optimization', 'Turnkey Solutions'],
+    image: '/services-tiny-homes.jpg',
+    color: 'from-teal-600/20',
+  },
+  {
     title: 'Full Remodeling',
     description: 'Complete home transformations. From kitchen and bathroom remodels to whole-house renovations.',
     icon: <Wrench className="w-8 h-8" />,
-    href: '/services',
+    href: '/remodeling',
     features: ['Kitchen Remodel', 'Bathroom Remodel', 'Whole-House', 'Basement Finishing'],
     image: '/services-remodeling.jpg',
     color: 'from-purple-600/20',
@@ -128,7 +158,7 @@ export default function ServicesPage() {
   </div>
 </section>
 
-      {/* ========== SERVICES GRID SECTION ========== */}
+      {/* ========== SERVICES GRID SECTION - 3x3 GRID ========== */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
           <div className="text-center mb-12">

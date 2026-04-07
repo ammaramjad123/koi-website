@@ -18,10 +18,13 @@ export default function Footer() {
   const serviceLinks = [
     { name: 'Flooring', href: '/flooring' },
     { name: 'Home Additions', href: '/additions' },
-    { name: 'New Construction', href: '/new-construction' },
+    { name: 'New Homes', href: '/new-homes' },
     { name: 'Painting', href: '/painting' },
     { name: 'Roofing', href: '/roofing' },
-    { name: 'Full Remodeling', href: '/services' },
+    { name: 'Deck & Patios', href: '/deck-patio' },
+    { name: 'ADU & DADU', href: '/adu-dadu' },
+    { name: 'Tiny Homes', href: '/tiny-homes' },
+    { name: 'Full Remodeling', href: '/remodeling' },
   ]
 
   const quickLinks = [
